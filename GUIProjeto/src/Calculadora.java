@@ -11,10 +11,12 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class calculadora {
+public class Calculadora {
 
 	private JFrame frmCalculadora;
 	private JTextField display;
+	Calcular calcular = new Calcular();
+	String sinal = "";
 
 	/**
 	 * Launch the application.
@@ -23,7 +25,7 @@ public class calculadora {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					calculadora window = new calculadora();
+					Calculadora window = new Calculadora();
 					window.frmCalculadora.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +37,7 @@ public class calculadora {
 	/**
 	 * Create the application.
 	 */
-	public calculadora() {
+	public Calculadora() {
 		initialize();
 	}
 
@@ -60,6 +62,9 @@ public class calculadora {
 		botaoSoma.setBounds(263, 142, 41, 50);
 		botaoSoma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				calcular.parte1 = Double.parseDouble(display.getText());
+				sinal = calcular.SOMAR;
+				display.setText(display.getText()+calcular.SOMAR);
 			}
 		});
 		frmCalculadora.getContentPane().setLayout(null);
